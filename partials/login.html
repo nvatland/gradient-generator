@@ -1,0 +1,25 @@
+<div class="page-content">
+    <div class="row">
+        <div class="space-6"></div>
+        <div id="log-in">
+            
+            <h1>Log in</h1>
+            <h2>{{message}}</h2>
+            <div class="row">
+                <label for="email">Email Address</label><br>
+                <input type="text" name="email" ng-model="login.email" class="login">
+            </div>
+            <div class="row">
+                <label for="password" >Password</label><br>
+                <input type="password" ng-model="login.password" class="login">
+            </div>
+            <div class="row">
+                <label ></label>
+                <button type="button" class="btn btn-primary" ng-click="doLogin(login)" data-ng-disabled="loginForm.$invalid">Log In</button>
+            </div>
+            <div class="row" id="new-account-row">
+                                <button type="button" class="btn btn-primary green-button" onclick="location.href='#/signup'">Create Account</button>
+                        </div>
+        </div>
+    </div>
+</div>

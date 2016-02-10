@@ -1,0 +1,50 @@
+		<!-- <h1>{{tab}}</h1> -->
+			<div id="container2">
+				<h1>Gradients</h1>
+				<div id="gradient"></div>
+				<div id="colorselect">
+					<div class="color-box cb1" id="cb1"></div>
+					<div id="fillerspace"></div>
+					<div class="color-box" id="cb2"></div>
+				</div>
+			</div>
+			<div id="codeandsave">
+			<button class="fa fa-arrow-left btn" id="left"></button>
+			<button class="fa fa-arrow-right btn" id="right"></button>
+			<button class="fa fa-arrow-up btn" id="up"></button>
+			<button class="fa fa-arrow-down btn" id="down"></button>
+
+				<div id="code-output" ng-model="codestuff">background: -moz-linear-gradient(left, #ffffff 0%, #98d8e3 100%);<br>
+background: -webkit-gradient(linear, left, right, color-stop(0%,#ffffff), color-stop(100%,#98d8e3));<br> 
+background: -webkit-linear-gradient(left, #ffffff 0%,#98d8e3 100%); <br>
+background: -o-linear-gradient(left, #ffffff 0%,#98d8e3 100%); <br>
+background: -ms-linear-gradient(left, #ffffff 0%,#98d8e3 100%); <br>
+background: linear-gradient(to right, #ffffff 0%,#98d8e3 100%); </div>
+				<button class="btn" id="save" type="submit" ng-show="authenticated" ng-click="showForm = ! showForm" >Save</button>
+			</div>
+			<div id="codeform" ng-show="showForm">
+				<form name="snippetForm" novalidate ng-submit="snippetForm.$valid && saveSnippet(snippets)">
+                                <div id="code-info">
+                                        <label>* Name: </label><br>
+                                        <input id="code-name" ng-model="snippets.name" ng-required="true"><br>
+                                        <label for="code-desc">* Description: </label><br>
+                                        <textarea id="code-desc" name="code-desc" ng-model="snippets.description" ng-required="true"></textarea><br>
+                                </div><!--
+                                --><div id="code-css">
+                                        <label>* Generated Code: </label><br>
+                                        <textarea id="code-code" ng-model="snippets.code" ng-required="true" readonly>{{codestuff}}</textarea>
+                                </div><br>
+                                <p>{{errormessage}}</p>
+                                        <button class="btn" id="submitsave" type="submit" ng-click="showForm = ! showForm" >Submit</button>
+                                </form>
+                        </div>
+					<script type="text/javascript" src="js/gradient.js"></script>
+		<script type="text/javascript">
+	$('#save').on('click', function(event) {
+		event.preventDefault();
+		var input = $('#code-code');
+		input.val($('#code-output').text()); //inserts code generated into textbox
+		input.trigger('input');
+	});
+
+	</script>

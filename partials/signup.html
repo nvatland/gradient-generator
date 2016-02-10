@@ -1,0 +1,33 @@
+<div class="page-content">
+    
+    <form name="signupForm" class="form-horizontal" role="form">
+        <div id="create-account">
+            <h1 id="create">Create Account</h1>
+            <h2>{{message}}</h2>
+            <div class="row">
+                <label for="name">Name</label><br>
+                <input type="text" ng-model="signup.name" class="signup">
+            </div>
+            <div class="row">
+                <label for="email">Email Address</label><br>
+                <input type="text" ng-model="signup.email" class="signup">
+                <span ng-show="signupForm.email.$error.email" class="help-inline">Email is not valid</span>
+            </div>
+            <div class="row">
+                <label for="password">Password</label><br>
+                <input type="password" ng-model="signup.password" class="signup">
+                <small class="errorMessage" data-ng-show="signupForm.password.$dirty && signupForm.password.$invalid"> Enter Password.</small>
+            </div>
+            <div class="row">
+                <label for="password">Confirm Password</label><br>
+                <input type="password" ng-model="signup.password2" password-match="signup.password" class="signup">
+                <small class="errorMessage" data-ng-show="signupForm.password2.$dirty && signupForm.password2.$error.required"> Enter password again.</small>
+                <small class="errorMessage" data-ng-show="signupForm.password2.$dirty && signupForm.password2.$error.passwordNoMatch && !signupForm.password2.$error.required"> Password does not match.</small>
+            </div>
+            <div class="row">
+                <label></label>
+                <button type="button" ng-click="signUp(signup)" class="btn" id="newaccountbtn" data-ng-disabled="signupForm.$invalid">Create Account</button>
+            </div>
+        </div>
+    </form>
+</div>
